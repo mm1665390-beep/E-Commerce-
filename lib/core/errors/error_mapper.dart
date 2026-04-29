@@ -1,0 +1,14 @@
+import 'package:ap/core/errors/exception.dart';
+import 'package:ap/core/errors/failure.dart';
+
+Failure mapExceptionToFailure(Exception e) {
+  if (e is ServerException) {
+    return ServerFailure();
+  } else if (e is OfflineException) {
+    return OfflineFailure();
+  } else if (e is EmptyCacheException) {
+    return EmptyCacheFailure();
+  } else {
+    return UnknownFailure();
+  }
+}

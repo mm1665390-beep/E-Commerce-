@@ -1,4 +1,5 @@
-class Postmodels {
+
+class ProductModel {
   int? id;
   String? title;
   String? description;
@@ -22,7 +23,7 @@ class Postmodels {
   List<String>? images;
   String? thumbnail;
 
-  Postmodels({
+  ProductModel({
     this.id,
     this.title,
     this.description,
@@ -47,7 +48,7 @@ class Postmodels {
     this.thumbnail,
   });
 
-  Postmodels.fromJson(Map<String, dynamic> json) {
+  ProductModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     description = json['description'];
@@ -111,7 +112,6 @@ class Postmodels {
     return data;
   }
 }
-
 class Dimensions {
   double? width;
   double? height;
@@ -132,6 +132,7 @@ class Dimensions {
     return data;
   }
 }
+
 
 class Reviews {
   int? rating;
