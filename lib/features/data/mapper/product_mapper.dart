@@ -1,5 +1,4 @@
-import 'package:ap/features/data/mapper/review_mapper.dart';
-import 'package:ap/features/data/models/productandreviewanddimensionsmodels.dart';
+import 'package:ecommerce/features/data/models/productandreviewanddimensionsmodels.dart';
 
 extension ProductMapper on ProductModel {
   ProductModel toEntity() {
@@ -11,7 +10,7 @@ extension ProductMapper on ProductModel {
       thumbnail: thumbnail,
       images: images,
       dimensions: dimensions,
-      reviews: reviews!.map((e) => e.toEntity()).toList(),
+      reviews: reviews,
     );
   }
 }

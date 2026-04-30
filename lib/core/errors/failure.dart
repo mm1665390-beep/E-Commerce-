@@ -1,4 +1,5 @@
-import 'package:ap/core/errors/failuremassege.dart';
+
+import 'package:ecommerce/core/errors/failuremassege.dart';
 
 abstract class Failure {
   final String message;

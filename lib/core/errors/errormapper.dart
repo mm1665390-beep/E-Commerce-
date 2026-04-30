@@ -1,5 +1,6 @@
-import 'package:ap/core/errors/exception.dart';
-import 'package:ap/core/errors/failure.dart';
+
+import 'package:ecommerce/core/errors/exception.dart';
+import 'package:ecommerce/core/errors/failure.dart';
 
 Failure mapExceptionToFailure(Exception e) {
   if (e is ServerException) {

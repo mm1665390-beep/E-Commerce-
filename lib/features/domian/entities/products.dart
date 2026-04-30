@@ -1,6 +1,7 @@
-import 'package:ap/features/data/models/productandreviewanddimensionsmodels.dart';
+import 'package:ecommerce/features/domian/entities/dimensions.dart';
+import 'package:ecommerce/features/domian/entities/review.dart';
 
-class Postmodelentities {
+class Products {
   final int id;
   final String title;
   final double price;
@@ -8,9 +9,9 @@ class Postmodelentities {
   final String thumbnail;
   final List<String> images;
   final Dimensions? dimensions;
-  final List<Reviews> reviews;
+  final List<Review> reviews;
 
-  Postmodelentities({
+  Products({
     required this.id,
     required this.title,
     required this.price,
@@ -20,6 +21,4 @@ class Postmodelentities {
     required this.dimensions,
     required this.reviews,
   });
-
-
 }
