@@ -1,9 +1,10 @@
+import 'package:dartz/dartz.dart';
 import 'package:ecommerce/core/errors/exception.dart';
 import 'package:ecommerce/core/errors/failure.dart';
 import 'package:ecommerce/core/networks/networkinfo.dart';
 import 'package:ecommerce/features/data/models/productandreviewanddimensionsmodels.dart';
-import 'package:ecommerce/features/data/service/Localdatabase.dart';
 import 'package:ecommerce/features/data/service/apimethod.dart';
+import 'package:ecommerce/features/data/service/localdatabase.dart';
 import 'package:ecommerce/features/domian/entities/products.dart';
 import 'package:ecommerce/features/domian/repository/repositoryinterface.dart';
 
@@ -19,27 +20,28 @@ class ProductRepositoryImpl implements ProductRepository {
   });
 
   @override
-  Future<List<Products>> getAllProducts() async {
+  Future<Either<Failure, List<Products>>> getAllProducts() async {
     if (await networkInfo.isConnected) {
       try {
         final List<ProductModel> products = await remoteDataSource
             .getAllProducts('products');
         await localDataSource.cacheProducts(products);
-        return products;
+        return Right(products);
       } on ServerException {
-        throw ServerFailure();
+        return Left(ServerFailure());
       }
     } else {
       try {
-        return await localDataSource.getCachedProducts();
+        final cached = await localDataSource.getCachedProducts();
+        return Right(cached); //
       } on EmptyCacheException {
-        throw EmptyCacheFailure();
+        return Left(EmptyCacheFailure());
       }
     }
   }
 
   @override
-  Future<Products> addProduct(Products product) async {
+  Future<Either<Failure, Unit>> addProduct(Products product) async {
     if (await networkInfo.isConnected) {
       try {
         final productModel = product as ProductModel;
@@ -47,12 +49,12 @@ class ProductRepositoryImpl implements ProductRepository {
           'products/add',
           productModel.toJson(),
         );
-        return product; //
+        return Right(unit);
       } on ServerException {
-        throw ServerFailure();
+        return Left(ServerFailure());
       }
     } else {
-      throw OfflineFailure();
+      return Left(OfflineFailure());
     }
   }
 }
