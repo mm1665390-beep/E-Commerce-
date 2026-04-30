@@ -27,7 +27,6 @@ class CartItemCubit extends Cubit<CartItemState> {
     final items = _currentItems
         .where((e) => e.products.id != productId)
         .toList();
-
     emit(CartUpdated(items: items));
   }
 
