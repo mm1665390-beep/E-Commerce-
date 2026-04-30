@@ -4,7 +4,6 @@ import 'package:ecommerce/features/domian/entities/products.dart';
 import 'package:ecommerce/features/domian/entities/review.dart';
 
 class ProductModel extends Products {
-
   final String? description;
   final String? category;
   final double? discountPercentage;
@@ -19,16 +18,15 @@ class ProductModel extends Products {
   final String? returnPolicy;
   final int? minimumOrderQuantity;
   final Meta? meta;
-
   ProductModel({
     required super.id,
     required super.title,
     required super.price,
     required super.rating,
-    required super.images,    
-    required super.reviews,   
-    required super.thumbnail, 
-    super.dimensions,         
+    required super.images,
+    required super.reviews,
+    required super.thumbnail,
+    super.dimensions,
     this.description,
     this.category,
     this.discountPercentage,
@@ -54,8 +52,7 @@ class ProductModel extends Products {
       thumbnail: json['thumbnail'] ?? '',
       images: List<String>.from(json['images'] ?? []),
       reviews: json['reviews'] != null
-          ? List<Review>.from(                        
-              json['reviews'].map((v) => Review.fromJson(v))) // 
+          ? List<Review>.from(json['reviews'].map((v) => Review.fromJson(v))) //
           : [],
       description: json['description'],
       category: json['category'],

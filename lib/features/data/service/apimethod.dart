@@ -11,9 +11,7 @@ abstract class ProductRemoteDataSource {
 
 class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   final http.Client client;
-
   ProductRemoteDataSourceImpl({required this.client});
-
   @override
   Future<List<ProductModel>> getAllProducts(String endpoint) async {
     try {
