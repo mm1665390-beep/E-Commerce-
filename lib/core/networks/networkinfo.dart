@@ -1,6 +1,5 @@
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
-// ✅ abstract عشان Clean Architecture
 abstract class NetworkInfo {
   Future<bool> get isConnected;
 }
