@@ -1,16 +1,47 @@
-# ap
+# 🛒 E-Commerce App (Flutter)
 
-A new Flutter project.
+A modern E-Commerce mobile application built using Flutter.
+The app allows users to browse products, add items to cart, and complete purchases.
 
-## Getting Started
+## 🚀 Features
+* 🔐 User Authentication (Login / Register)
+* 🛍️ Browse Products
+* 🔎 Search Functionality
+* 🛒 Add to Cart
+* 💳 Checkout System
+* ❤️ Wishlist (optional)
+* 📦 Order Tracking (optional)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Tech Stack
+* Flutter (UI Framework)
+* Dart (Programming Language)
+* SQLite / Firebase (Database)
+* REST APIs
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ⚙️ Getting Started
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 2. Navigate to project folder
+cd ecommerce-app
+
+### 3. Install dependencies
+flutter pub get
+
+
+### 4. Run the app
+flutter run
+
+
+## 📚 Resources
+
+* https://docs.flutter.dev/
+* https://docs.flutter.dev/cookbook
+
+
+## 👨‍💻 Author
+Developed by [Mohamed Mosaad]
+
+
+## 📌 Notes
+
+This project is still under development and new features will be added soon.
