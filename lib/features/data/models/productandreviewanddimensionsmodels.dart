@@ -52,7 +52,7 @@ class ProductModel extends Products {
       thumbnail: json['thumbnail'] ?? '',
       images: List<String>.from(json['images'] ?? []),
       reviews: json['reviews'] != null
-          ? List<Review>.from(json['reviews'].map((v) => Review.fromJson(v))) //
+          ? List<Review>.from(json['reviews'].map((v) => Review.fromJson(v))) 
           : [],
       description: json['description'],
       category: json['category'],

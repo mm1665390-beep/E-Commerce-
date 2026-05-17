@@ -11,12 +11,12 @@ import 'package:equatable/equatable.dart';
 part 'products_state.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {
-  final AddProducts addProducts;
+  final AddProductsUsecase addProducts;
   final GetAllProductUsecase getAllProductUsecase;
   ProductsCubit({required this.addProducts, required this.getAllProductUsecase})
     : super(ProductsInitial());
   Future<void> getAllProducts() async {
-    emit(ProductLoading()); // ✅ بيبعت Loading
+    emit(ProductLoading());
 
     final result = await getAllProductUsecase();
 
@@ -29,7 +29,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   Future<Either<Failure, Unit>> addProduct(Products product) async {
     emit(ProductLoading());
 
-    final result = await addProduct(product);
+    final result = await addProducts(product);
 
     result.fold(
       (failure) => emit(ProductError(message: failure.message)),
